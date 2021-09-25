@@ -1,0 +1,25 @@
+includes:
+    - AM2315.h
+  libraries:
+    - "Adafruit_AM2315"
+    - "SPI"
+
+i2c:
+     sda: 21
+     scl: 22
+     scan: false
+     frequency: 100kHz
+
+  - platform: custom
+    lambda: |-
+      auto AM2315sensor = new AM2315();
+      App.register_component(AM2315sensor);
+      return {AM2315sensor->temperature_sensor, AM2315sensor->humidity_sensor};
+
+    sensors:
+      - name: "Temperature"
+        unit_of_measurement: °C
+        accuracy_decimals: 1
+      - name: "Humidity"
+        unit_of_measurement: "%"
+        accuracy_decimals: 1
