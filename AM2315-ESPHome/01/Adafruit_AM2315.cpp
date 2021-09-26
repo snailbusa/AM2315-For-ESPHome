@@ -74,7 +74,7 @@ boolean Adafruit_AM2315::readData(void) {
   //
   // Using steps from datasheet, s.7.2.4
   //
-//Wake up
+  //Wake up << ^_^ >> NOW!!
   Wire.beginTransmission(AM2315_I2CADDR);
   Wire.write(AM2315_READREG);
   Wire.endTransmission();
